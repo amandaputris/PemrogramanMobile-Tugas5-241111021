@@ -1,0 +1,195 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.core.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/background">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="16dp">
+
+        <!-- Top Header -->
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="16dp">
+
+            <ImageView
+                android:id="@+id/ivIcon"
+                android:layout_width="48dp"
+                android:layout_height="48dp"
+                android:src="@android:drawable/ic_menu_gallery"
+                android:background="@drawable/rounded_bg_white"
+                android:padding="8dp"/>
+
+            <ImageView
+                android:layout_width="32dp"
+                android:layout_height="32dp"
+                android:layout_toEndOf="@id/ivIcon"
+                android:layout_marginStart="16dp"
+                android:layout_centerVertical="true"
+                android:src="@android:drawable/ic_popup_reminder"
+                app:tint="@color/primary"/>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentEnd="true"
+                android:layout_centerVertical="true"
+                android:orientation="horizontal">
+
+                <ImageView
+                    android:layout_width="32dp"
+                    android:layout_height="32dp"
+                    android:src="@android:drawable/ic_menu_search"
+                    android:layout_marginEnd="16dp"
+                    app:tint="@color/primary"/>
+
+                <ImageView
+                    android:layout_width="32dp"
+                    android:layout_height="32dp"
+                    android:src="@android:drawable/ic_menu_my_calendar"
+                    app:tint="@color/primary"/>
+            </LinearLayout>
+        </RelativeLayout>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Today"
+            android:textColor="@color/black"
+            android:textSize="24sp"
+            android:textStyle="bold" />
+
+        <!-- Weekly Calendar -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:gravity="center"
+            android:orientation="horizontal">
+            <!-- Simplified Calendar View -->
+            <include layout="@layout/item_day_circle" />
+            <include layout="@layout/item_day_circle" />
+            <include layout="@layout/item_day_circle" />
+            <include layout="@layout/item_day_circle" />
+            <View android:layout_width="40dp" android:layout_height="40dp" android:background="@drawable/circle_primary" android:layout_margin="4dp"/>
+            <include layout="@layout/item_day_circle" />
+            <include layout="@layout/item_day_circle" />
+        </LinearLayout>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:text="0🔥 Log food to start a streak"
+            android:textColor="@android:color/darker_gray"
+            android:textSize="12sp" />
+
+        <!-- Meal Plans Horizontal Scroll -->
+        <HorizontalScrollView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:scrollbars="none">
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <!-- Card 1 -->
+                <com.google.android.material.card.MaterialCardView
+                    android:layout_width="220dp"
+                    android:layout_height="120dp"
+                    android:layout_marginEnd="12dp"
+                    app:cardCornerRadius="16dp">
+                    <FrameLayout android:layout_width="match_parent" android:layout_height="match_parent">
+                        <ImageView android:layout_width="match_parent" android:layout_height="match_parent" android:scaleType="centerCrop" android:src="@android:drawable/sym_def_app_icon" />
+                        <View android:layout_width="match_parent" android:layout_height="match_parent" android:background="#66000000" />
+                        <LinearLayout android:layout_width="match_parent" android:layout_height="match_parent" android:orientation="vertical" android:padding="12dp" android:gravity="bottom">
+                             <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="High Protein, Low Carb" android:textColor="@color/white" android:textStyle="bold" />
+                             <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="2100 cal" android:textColor="@color/white" />
+                        </LinearLayout>
+                    </FrameLayout>
+                </com.google.android.material.card.MaterialCardView>
+
+                <!-- Card 2 -->
+                <com.google.android.material.card.MaterialCardView
+                    android:layout_width="220dp"
+                    android:layout_height="120dp"
+                    app:cardCornerRadius="16dp">
+                    <FrameLayout android:layout_width="match_parent" android:layout_height="match_parent">
+                        <ImageView android:layout_width="match_parent" android:layout_height="match_parent" android:scaleType="centerCrop" android:src="@android:drawable/sym_def_app_icon" />
+                        <View android:layout_width="match_parent" android:layout_height="match_parent" android:background="#66000000" />
+                        <LinearLayout android:layout_width="match_parent" android:layout_height="match_parent" android:orientation="vertical" android:padding="12dp" android:gravity="bottom">
+                             <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Intermittent Fasting" android:textColor="@color/white" android:textStyle="bold" />
+                             <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="2100 cal" android:textColor="@color/white" />
+                        </LinearLayout>
+                    </FrameLayout>
+                </com.google.android.material.card.MaterialCardView>
+            </LinearLayout>
+        </HorizontalScrollView>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:gravity="end"
+            android:text="COLLAPSE ▴"
+            android:textColor="@android:color/darker_gray"
+            android:textSize="12sp"
+            android:textStyle="bold"/>
+
+        <!-- Calorie Summary -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:orientation="horizontal"
+            android:gravity="center_vertical">
+            <View android:layout_width="40dp" android:layout_height="40dp" android:background="@color/primary" android:alpha="0.2"/>
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:layout_marginStart="12dp"
+                android:orientation="vertical">
+                <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Calories Remaining" android:textColor="@color/black" />
+                <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Calories Consumed" android:textColor="@android:color/darker_gray" />
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="end"
+                android:orientation="vertical">
+                <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="2100" android:textColor="@color/black" android:textStyle="bold" />
+                <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="0" android:textColor="@color/black" android:textStyle="bold" />
+            </LinearLayout>
+        </LinearLayout>
+
+        <!-- Meal Slots -->
+        <include layout="@layout/item_meal_slot" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="12dp" />
+        <include layout="@layout/item_meal_slot" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="8dp" />
+        <include layout="@layout/item_meal_slot" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="8dp" />
+        <include layout="@layout/item_meal_slot" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="8dp" />
+
+        <!-- Extra Slots -->
+        <com.google.android.material.card.MaterialCardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            app:cardBackgroundColor="#F0F0F0"
+            app:cardCornerRadius="12dp"
+            app:cardElevation="0dp">
+            <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="vertical" android:padding="16dp">
+                <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Custom Meals 🔒" android:textColor="@color/secondary" android:textStyle="bold" />
+                <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Track more than the main meals" android:textSize="12sp" />
+            </LinearLayout>
+        </com.google.android.material.card.MaterialCardView>
+
+    </LinearLayout>
+</androidx.core.widget.NestedScrollView>
